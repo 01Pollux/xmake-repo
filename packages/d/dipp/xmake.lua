@@ -6,7 +6,7 @@ package("dipp")
 
     add_urls("https://github.com/01Pollux/dipp.git")
 
-    add_versions("2024.01.12", "e441e97a2aa454d778ba2b6398b45f10a6a975f8")
+    add_versions("2024.01.12", "e299326ea441f9df8dc8bcdd79bf3e49acda55fd")
 
     on_install(function (package)
         local configs = {
