@@ -5,8 +5,8 @@ package("diligent-engine")
     set_license("Apache-2.0")
 
     add_urls("https://github.com/DiligentGraphics/DiligentCore/archive/refs/tags/$(version).tar.gz")
-    add_versions("v2.5.6", "0940a6f52b4d61bc7122d7e9ed96521a0841232b4be4e74c0199efe23ef57ef4")
-    
+    add_versions("v2.5.6", "abc190c05ee7e5ef2bba52fcbc5fdfe2256cce3435efba9cfe263a386653f671")
+
     add_deps("cmake")
 
     add_configs("d3d11",                {description = "Build support for D3D11", default = true, type = "boolean"})
