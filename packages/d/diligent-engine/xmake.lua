@@ -85,11 +85,6 @@ package("diligent-engine")
 
         -- used to append to CMakelists.txts
         local footer = [[
-
-            add_executable(DummyExecutable dummymain.cpp)
-            target_compile_options(DummyExecutable PRIVATE -DUNICODE -DENGINE_DLL)
-            copy_required_dlls(DummyExecutable)
-
             set(XMAKE_MACROS_TO_EXPORT "")
         ]]
 
