@@ -4,8 +4,8 @@ package("diligent-engine")
     set_description("A modern cross-platform low-level graphics API.")
     set_license("Apache-2.0")
 
-    add_urls("https://github.com/DiligentGraphics/DiligentCore/archive/refs/tags/$(version).tar.gz")
-    add_versions("v2.5.6", "abc190c05ee7e5ef2bba52fcbc5fdfe2256cce3435efba9cfe263a386653f671")
+    add_urls("https://github.com/DiligentGraphics/DiligentCore/releases/download/$(version)/DiligentCore_$(version).zip")
+    add_versions("v2.5.6", "7975f00830e015cddd7c37480b785cdf946c8c288d65c0e26e7094284ada0d97")
 
     add_deps("cmake")
 
@@ -14,8 +14,8 @@ package("diligent-engine")
     add_configs("gl",                   {description = "Build support for GL", default = true, type = "boolean"})
     add_configs("gles",                 {description = "Build support for GLES", default = true, type = "boolean"})
     add_configs("vk",                   {description = "Build support for Vulkan", default = true, type = "boolean"})
-    add_configs("wgpu",                 {description = "Build support for WebGPU", default = false, type = "boolean"})
-    add_configs("mtl",                  {description = "Build support for Metal", default = false, type = "boolean"})
+    add_configs("wgpu",                 {description = "Build support for WebGPU", default = true, type = "boolean"})
+    add_configs("mtl",                  {description = "Build support for Metal", default = true, type = "boolean"})
 
     add_configs("hlsl",                 {description = "Enable HLSL support in non-Direct3D backends", default = true, type = "boolean"})
     add_configs("archiver",             {description = "Build support for Archiver", default = true, type = "boolean"})
@@ -67,8 +67,8 @@ package("diligent-engine")
             { key = "gl",       macro = "GL_SUPPORTED"       },
             { key = "gles",     macro = "GLES_SUPPORTED"     },
             { key = "vk",       macro = "VULKAN_SUPPORTED"   },
-            { key = "webgpu",   macro = "WEBGPU_SUPPORTED"   },
-            { key = "metal",    macro = "METAL_SUPPORTED"    },
+            { key = "wgpu",     macro = "WEBGPU_SUPPORTED"   },
+            { key = "mtl",      macro = "METAL_SUPPORTED"    },
             { key = "archiver", macro = "ARCHIVER_SUPPORTED" },
         }
 
