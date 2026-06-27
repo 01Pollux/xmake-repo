@@ -48,7 +48,7 @@ package("diligentcore")
     add_deps("xxhash")
 
     if is_plat("linux") then
-        add_deps("libx11", "libxrandr", "libxrender", "libxinerama", "libxfixes", "libxcursor", "libxi", "libxext", "wayland", "libffi")
+        add_deps("libx11", "libxrandr", "libxrender", "libxinerama", "libxfixes", "libxcursor", "libxi", "libxext", "wayland")
     end
 
     on_load("windows", "linux", "macosx", function (package)
