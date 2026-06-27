@@ -83,9 +83,5 @@ package("tbox")
     end)
 
     on_test(function (package)
-        local cxflags
-        if package:config("shared") and not package:is_plat("windows") then
-            cxflags = "-fPIC"
-        end
-        assert(package:has_cfuncs("tb_exit", {includes = "tbox/tbox.h", configs = {languages = "c99", cxflags = cxflags}}))
+        assert(package:has_cfuncs("tb_exit", {includes = "tbox/tbox.h", configs = {languages = "c99"}}))
     end)
