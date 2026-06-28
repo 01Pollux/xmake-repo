@@ -65,7 +65,7 @@ package("diligentcore")
                 package:add("frameworks", "OpenGL")
             end
         end
-lmk 
+
         if package:config("vulkan") then
             package:add("deps", "vulkan-headers")
             package:add("deps", "volk", {configs = {header_only = true}})
