@@ -80,7 +80,7 @@ package("diligentcore")
             package:add("deps", "spirv-tools", {configs = {shared = package:config("shared")}})
         end
 
-        package:add("deps", "spirv-cross")
+        package:add("deps", "spirv-cross", {configs = {shared = package:config("shared")}})
     end)
 
     on_install("windows", "linux", "macosx", function (package)
