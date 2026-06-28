@@ -48,26 +48,7 @@ package("diligentcore")
     add_deps("xxhash")
 
     if is_plat("linux") then
-        add_deps(
-            "libx11",
-            "libxrandr",
-            "libxrender",
-            "libxinerama",
-            "libxfixes",
-            "libxcursor",
-            "libxi",
-            "libxext",
-            "libxau",
-            "libxdmcp",
-            "libffi",
-            "openssl",
-            "ca-certificates",
-            "xcb-proto",
-            "libxcb",
-            "xtrans",
-            "wayland",
-            "xxhash"
-        )
+        add_deps("libx11", "libxrandr", "libxrender", "libxinerama", "libxfixes", "libxcursor", "libxi", "libxext", "wayland")
     end
 
     on_load(function (package)
@@ -95,28 +76,9 @@ package("diligentcore")
         end
 
         if package:config("hlsl") or package:config("archiver") or package:config("glslang") then
-            package:add("deps", "glslang")
-            package:add("deps", "spirv-tools")
+            package:add("deps", "glslang", {configs = {shared = package:config("shared")}})
+            package:add("deps", "spirv-tools", {configs = {shared = package:config("shared")}})
         end
-
-        -- libxi
-        -- libxcursor
-        -- libxi
-        -- libxfixes
-        -- libxinerama
-        -- libxrandr
-        -- libxrender
-        -- libxext
-        -- x11
-        -- x11-xcb
-        -- xtrans
-        -- libpthread-stubs
-        -- openssl
-        -- libffi
-        -- libxdmcp
-        -- xau
-        -- util-macros
-        -- libxxhash
 
         package:add("deps", "spirv-cross")
     end)
