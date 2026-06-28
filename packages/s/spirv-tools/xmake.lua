@@ -72,7 +72,7 @@ package("spirv-tools")
         end
         package:add("links", "SPIRV-Tools-link", "SPIRV-Tools-reduce", "SPIRV-Tools-opt")
         if package:config("shared") then
-            package:add("links", "SPIRV-Tools", "SPIRV-Tools-shared")
+            package:add("links", "SPIRV-Tools-shared")
         else
             package:add("links", "SPIRV-Tools")
         end

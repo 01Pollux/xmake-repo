@@ -51,7 +51,7 @@ package("diligentcore")
         add_deps("libx11", "libxrandr", "libxrender", "libxinerama", "libxfixes", "libxcursor", "libxi", "libxext", "wayland")
     end
 
-    on_load("windows", "linux", "macosx", function (package)
+    on_load(function (package)
         if package:is_plat("windows") then
             package:add("defines", "NOMINMAX", "WIN32_LEAN_AND_MEAN", "UNICODE")
         end
@@ -76,7 +76,11 @@ package("diligentcore")
         end
 
         if package:config("hlsl") or package:config("archiver") or package:config("glslang") then
-            package:add("deps", "glslang")
+            if package:is_plat("linux") then
+                package:add("deps", "glslang", {configs = {shared = true}})
+            else
+                package:add("deps", "glslang")
+            end
             package:add("deps", "spirv-tools")
         end
 
