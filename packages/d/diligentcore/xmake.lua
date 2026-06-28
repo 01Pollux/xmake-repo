@@ -48,7 +48,7 @@ package("diligentcore")
     add_deps("xxhash")
 
     if is_plat("linux") then
-        add_deps("libx11", "libxrandr", "libxrender", "libxinerama", "libxfixes", "libxcursor", "libxi", "libxext", "wayland", "libffi")
+        add_deps("libx11", "libxrandr", "libxrender", "libxinerama", "libxfixes", "libxcursor", "libxi", "libxext", "wayland")
     end
 
     on_load(function (package)
@@ -65,7 +65,7 @@ package("diligentcore")
                 package:add("frameworks", "OpenGL")
             end
         end
-
+lmk 
         if package:config("vulkan") then
             package:add("deps", "vulkan-headers")
             package:add("deps", "volk", {configs = {header_only = true}})
@@ -76,11 +76,11 @@ package("diligentcore")
         end
 
         if package:config("hlsl") or package:config("archiver") or package:config("glslang") then
-            package:add("deps", "glslang", {configs = {shared = package:config("shared")}})
-            package:add("deps", "spirv-tools", {configs = {shared = package:config("shared")}})
+            package:add("deps", "glslang")
+            package:add("deps", "spirv-tools")
         end
 
-        package:add("deps", "spirv-cross", {configs = {shared = package:config("shared")}})
+        package:add("deps", "spirv-cross")
     end)
 
     on_install("windows", "linux", "macosx", function (package)
